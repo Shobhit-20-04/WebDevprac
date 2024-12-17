@@ -1,0 +1,51 @@
+<html>
+    <head>
+    <style>
+        #Car
+        {
+            width:auto;
+            height: auto;
+            position: absolute;
+            top: 20px;
+            left: 80px;
+        }
+    </style>
+    <script>
+        var a;
+        b=80;
+        c=20;
+        function moveCar()
+        {
+            console.log(event.which);
+            a=event.keyCode;
+            if(a==37)
+            {
+                b=b-10;
+                document.getElementById("Car").style.left=b+"px";
+            }
+            else if(a==38)
+            {
+                c=c-10;
+                document.getElementById("Car").style.top=c+"px";
+            }
+            else if(a==39)
+            {
+                b=b+10;
+                document.getElementById("Car").style.left=b+"px";
+            }
+            else if(a==40)
+            {
+                c=c+10;
+                document.getElementById("Car").style.top=c+"px";
+            }
+            
+        }
+    </script>
+    </head>
+    <body bgcolor="yellow">
+        <input type="text" onkeydown="moveCar();">
+        <div id="Car">
+          <img src="./img/Car.png">
+        </div>
+    </body>
+</html>

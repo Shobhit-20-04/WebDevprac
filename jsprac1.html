@@ -1,0 +1,51 @@
+<html>
+<head>
+    <script>
+        function chkDetail()
+        {
+            document.getElementById("spnname").innerHTML = "";
+            document.getElementById("spnuname").innerHTML = "";
+            document.getElementById("spnemail").innerHTML = "";
+            document.getElementById("spnpass").innerHTML = "";
+            z=1;
+                    x=document.f1;
+                    if(x.txtname.value=="")
+                    {
+                        document.getElementById("spnname").innerHTML=" Name cannot be empty";
+                        z=0;
+                    }
+                    if(x.txtuname.value=="")
+                    {
+                        document.getElementById("spnuname").innerHTML=" Username cannot be empty";
+                        z=0;
+                    }
+                    email=x.txtemail.value
+                    if(email.indexOf("@") != email.lastIndexOf("@") || email == "" || email.indexOf("@") == -1 )
+                    {
+                        document.getElementById("spnemail").innerHTML=" Invalid Email";
+                        z=0;
+                    }
+                    if(x.txtpass.value=="")
+                    {
+                        document.getElementById("spnpass").innerHTML=" Password cannot be empty";
+                        z=0;
+                    }
+                    if(z==1)
+                    {
+                        document.f1.submit();
+                    }
+            }
+    </script>
+</head>
+<body>
+    <h1 id="head">First form</h1>
+<form name="f1" method="get" action="./lemon.html">
+Enter Your Name<br><input type="text" name="txtname"><span id="spnname"></span><br><br>
+Enter Your Username<br><input type="text" name="txtuname"><span id="spnuname"></span><br><br>
+Enter Your Email<br><input type="text" name="txtemail"><span id="spnemail"></span><br><br>
+Enter Password<br><input type="password" name="txtpass"><span id="spnpass"></span><br><br>
+    <input type="button" value="OK" onclick="chkDetail();">
+    <input type="reset" value="Cancel">
+</form>
+</body>
+</html>

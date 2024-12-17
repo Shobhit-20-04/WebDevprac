@@ -1,0 +1,75 @@
+<html>
+<head>
+<style>
+    body
+    {
+        overflow: hidden;
+        background-color: aqua;
+    }
+    #myCar
+    {
+        height: auto;
+        width: auto;
+        transform: rotate(0deg);
+        position: absolute;
+        top: 200px;
+        left: 450px;
+    }
+</style>        
+</head>
+<body onload="continueCar();">
+    <input type="text" id="txtCar" onkeydown="Carmove();">
+    <img src="./img/Car.png" id="myCar">
+<script>
+    var a,moveInterval;
+    var b=200;
+    var c=450;
+    function continueCar()
+    {
+        moveInterval=setInterval(() => {
+        b=b-5;
+        document.getElementById("myCar").style.top=b + "px";
+    }, 40);
+    }
+    function Carmove()
+    {
+        clearInterval(moveInterval);
+        var a = event.keyCode;
+        var car = document.getElementById("myCar");
+
+        if (a == 37) 
+        { 
+            car.style.transform = "rotate(-90deg)";
+            moveInterval=setInterval(() => {
+            c=c-5;
+            car.style.left=c + "px";
+            }, 40);
+        } 
+        else if (a == 38) 
+        {
+            car.style.transform = "rotate(0deg)";
+            moveInterval=setInterval(() => {
+            b=b-5;
+            car.style.top=b + "px";
+            }, 40);
+        } 
+        else if (a == 39) 
+        {
+            car.style.transform = "rotate(90deg)";
+            moveInterval=setInterval(() => {
+            c=c+5;
+            car.style.left=c + "px";
+            }, 40);
+        } 
+        else if (a == 40) 
+        {
+            car.style.transform = "rotate(180deg)";
+            moveInterval=setInterval(() => {
+            b=b+5;
+            car.style.top=b + "px";
+            }, 40);
+        }
+    }
+</script>
+</body>
+</html>
